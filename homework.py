@@ -59,10 +59,9 @@ def test_find_suitable_user():
 
     suitable_users = []
 
-    for user in users:
-        for k, v in user.items():
-            if k == 'age' and int(v) < 20:
-                suitable_users.append(user)
+    for age in users:
+        if age["age"] < 20:
+            suitable_users.append(age)
 
     assert suitable_users == [
         {"name": "Stanislav", "age": 15},
