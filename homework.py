@@ -5,43 +5,15 @@ def test_dark_theme_by_time():
     """
     Протестируйте правильность переключения темной темы на сайте в зависимости от времени
     """
-    current_time = time(hour=0)
+    current_time = time(hour=5)
     is_dark_theme = None
 
-    if time(hour=21) >= current_time > time(hour=6):
+    if time(hour=21) >= current_time >= time(hour=6):
         is_dark_theme = False
     else:
         is_dark_theme = True
 
     assert is_dark_theme is True
-
-# 0 - ночь, темная тема
-# 1 - ночь, темная тема
-# 2 - ночь, темная тема
-# 3 - ночь, темная тема
-# 4 - ночь, темная тема
-# 5 - ночь, темная тема
-
-# 6 - день, светлая тема
-# 7 - день, светлая тема
-# 8 - день, светлая тема
-# 9 - день, светлая тема
-# 10 - день, светлая тема
-# 11 - день, светлая тема
-# 12 - день, светлая тема
-# 13 - день, светлая тема
-# 14 - день, светлая тема
-# 15 - день, светлая тема
-# 16 - день, светлая тема
-# 17 - день, светлая тема
-# 18 - день, светлая тема
-# 19 - день, светлая тема
-# 20 - день, светлая тема
-# 21 - день, светлая тема
-
-# 22 - ночь, темная тема
-# 23 - ночь, темная тема
-
 
 def test_dark_theme_by_time_and_user_choice():
     """
@@ -52,7 +24,6 @@ def test_dark_theme_by_time_and_user_choice():
     dark_theme_enabled_by_user = None - Пользователь не сделал выбор (используется переключение по времени системы)
     """
     current_time = time(hour=7)
-    # (с 22 до 6 часов утра - ночь)
 
     is_dark_theme = None
     dark_theme_enabled_by_user = True
@@ -60,7 +31,7 @@ def test_dark_theme_by_time_and_user_choice():
     if dark_theme_enabled_by_user:
         is_dark_theme = dark_theme_enabled_by_user
     elif dark_theme_enabled_by_user is None:
-        if time(hour=21) >= current_time > time(hour=6):
+        if time(hour=21) >= current_time >= time(hour=6):
             is_dark_theme = False
         else:
             is_dark_theme = True
